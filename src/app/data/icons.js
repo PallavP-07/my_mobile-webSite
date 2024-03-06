@@ -6,10 +6,10 @@ import { FaCss3Alt,FaReact,FaLinkedin,FaGitAlt,FaFileDownload } from "react-icon
 import { TbBrandNextjs,TbBrandRedux } from "react-icons/tb";
 import { IoLogoDocker } from "react-icons/io5";
 import { BiLogoTypescript,BiLogoMongodb,BiLogoTailwindCss,BiLogoPostgresql, } from "react-icons/bi";
-import { SiMysql,SiVisualstudiocode,SiPostman, } from "react-icons/si";
+import { SiVisualstudiocode,SiPostman, } from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
 import { IoMdMail,IoIosCall } from "react-icons/io";
-
+import { GrMysql } from "react-icons/gr";
 
 export const iconsData={
     Home: RxDashboard,
@@ -29,7 +29,7 @@ export const iconsData={
 export const TechIcon={
     HTML:FaHtml5,
     CSS:FaCss3Alt,
-    SQL:SiMysql,
+    SQL:GrMysql,
     TypeScript:BiLogoTypescript,
     JS:IoLogoJavascript,
     MongoDB:BiLogoMongodb,

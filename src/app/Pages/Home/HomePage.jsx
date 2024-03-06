@@ -1,11 +1,35 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { iconsData, TechIcon } from "../../data/icons";
+import { iconsData } from "../../data/icons";
 import Style from "./style.module.scss";
+import { projects, tech, Other, social } from "../../data/data";
 function Home() {
   const [showIcon, setShowIcon] = useState(false);
+  const [contact,setContact]=useState({
+    uname:"",
+    email:"",
+    message:""
+  })
+  const handleChange=(e)=>{
+    const value=e.target.value;
+    setContact({
+      ...contact,
+      [e.target.name]:value
+    });
 
+  }
+ const submitHandler =(e)=>{
+  e.preventDefault()
+  console.log(contact);
+setContact({
+  uname:"",
+  email:"",
+  message:""
+})
+
+
+ }
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.screenY || document.documentElement.scrollTop;
@@ -16,15 +40,15 @@ function Home() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
   const scrollToSection = (sectionId) => {
@@ -32,14 +56,13 @@ function Home() {
     if (section) {
       window.scrollTo({
         top: section.offsetTop,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
-
-  const DownloadCV =()=>{
-    window.open ('/Pallav-Panda_Resume.pdf', '_blank');
-  }
+  const DownloadCV = () => {
+    window.open("/Pallav-Panda_Resume.pdf", "_blank");
+  };
   return (
     <>
       <div className={Style.Container}>
@@ -50,13 +73,22 @@ function Home() {
                 <iconsData.List className={Style.Icon} />
               </li>
               <li>
-                <iconsData.Home className={Style.Icon} onClick={() => scrollToSection('project')} />
+                <iconsData.Home
+                  className={Style.Icon}
+                  onClick={() => scrollToSection("project")}
+                />
               </li>
               <li>
-                <iconsData.Code onClick={() => scrollToSection('tech')} className={Style.Icon} />
+                <iconsData.Code
+                  onClick={() => scrollToSection("tech")}
+                  className={Style.Icon}
+                />
               </li>
               <li>
-              <iconsData.Upper  className={`${Style.Icon} ${showIcon ? '' : Style.hide}`} onClick={scrollToTop} />
+                <iconsData.Upper
+                  className={`${Style.Icon} ${showIcon ? "" : Style.hide}`}
+                  onClick={scrollToTop}
+                />
               </li>
             </ul>
           </div>
@@ -78,18 +110,12 @@ function Home() {
               Download CV
             </button>
             <ul className={Style.hero_content_social}>
-              <li>
-                <iconsData.Github className={Style.social_icon} />
-                Github
-              </li>
-              <li>
-                <iconsData.Linkedin className={Style.social_icon} />
-                Linkedin
-              </li>
-              <li>
-                <iconsData.Mail className={Style.social_icon} />
-                E-mail
-              </li>
+              {social.map((item, index) => (
+                <li key={index}>
+                  {item.icon && <item.icon className={Style.social_icon} />}
+                  {item.name}
+                </li>
+              ))}
             </ul>
           </div>
         </section>
@@ -97,7 +123,7 @@ function Home() {
         <section>
           <div className={Style.timeline}>
             <ul>
-            <li>
+              <li>
                 <p className={Style.content}>
                   <iconsData.Code />
                   Computer Science
@@ -106,8 +132,6 @@ function Home() {
                 <p className={Style.time}>
                   <iconsData.Education />
                   B.C.A
-                
-                 
                 </p>
               </li>
               <li>
@@ -142,94 +166,23 @@ function Home() {
           <div className={Style.Projects_box}>
             <h2 className={Style.Projects_title}>Projects</h2>
             <div className={Style.Projects_cards}>
-              <div className={Style.Projects_card}>
-                <h3 className={Style.card_title}>my project-1</h3>
-                <p className={Style.card_details}>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                </p>
-                <a className={Style.card_btn}>
-                  Read More
-                  <iconsData.sideArrow />
-                </a>
-                <ul className={Style.card_tech}>
-                  <li>
-                    <TechIcon.HTML />
-                  </li>
-                  <li>
-                    {" "}
-                    <TechIcon.CSS />
-                  </li>
-                  <li>
-                    <TechIcon.JS />
-                  </li>
-                </ul>
-              </div>
-              <div className={Style.Projects_card}>
-                <h3 className={Style.card_title}>my project-1</h3>
-                <p className={Style.card_details}>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                </p>
-                <a className={Style.card_btn}>
-                  Read More
-                  <iconsData.sideArrow />
-                </a>
-                <ul className={Style.card_tech}>
-                  <li>
-                    <TechIcon.HTML />
-                  </li>
-                  <li>
-                    {" "}
-                    <TechIcon.CSS />
-                  </li>
-                  <li>
-                    <TechIcon.JS />
-                  </li>
-                </ul>
-              </div>
-              <div className={Style.Projects_card}>
-                <h3 className={Style.card_title}>my project-1</h3>
-                <p className={Style.card_details}>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                </p>
-                <a className={Style.card_btn}>
-                  Read More
-                  <iconsData.sideArrow />
-                </a>
-                <ul className={Style.card_tech}>
-                  <li>
-                    <TechIcon.HTML />
-                  </li>
-                  <li>
-                    {" "}
-                    <TechIcon.CSS />
-                  </li>
-                  <li>
-                    <TechIcon.JS />
-                  </li>
-                </ul>
-              </div>
-              <div className={Style.Projects_card}>
-                <h3 className={Style.card_title}>my project-1</h3>
-                <p className={Style.card_details}>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                </p>
-                <a className={Style.card_btn}>
-                  Read More
-                  <iconsData.sideArrow />
-                </a>
-                <ul className={Style.card_tech}>
-                  <li>
-                    <TechIcon.HTML />
-                  </li>
-                  <li>
-                    {" "}
-                    <TechIcon.CSS />
-                  </li>
-                  <li>
-                    <TechIcon.JS />
-                  </li>
-                </ul>
-              </div>
+              {projects.map((item, index) => (
+                <div className={Style.Projects_card} key={index}>
+                  <h3 className={Style.card_title}>{item.title}</h3>
+                  <p className={Style.card_details}>{item.discription}</p>
+                  <a className={Style.card_btn}>
+                    Read More
+                    <iconsData.sideArrow />
+                  </a>
+                  <ul className={Style.card_tech}>
+                    {item.tech.map((techItem, techIndex) => (
+                      <li key={techIndex}>
+                        {techItem.icon && <techItem.icon />}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -238,89 +191,39 @@ function Home() {
           <div>
             <h2>Technology</h2>
             <div className={Style.tech_Card}>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.HTML className={Style.icon} />
-                  HTML
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.CSS className={Style.icon} />
-                  CSS3
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.JS className={Style.icon} />
-                  JavaScript
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.React className={Style.icon} />
-                  ReactJs
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.NextJs className={Style.icon} />
-                  NextJs
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.NodeJS className={Style.icon} />
-                  NodeJs
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.MongoDB className={Style.icon} />
-                  MongoDB
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.Redux className={Style.icon} />
-                  Redux
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.PGSQL className={Style.icon} />
-                  PGSQL
-                </p>
-              </div>
+              {tech.map((item, index) => (
+                <div className={Style.Tech_icon} key={index}>
+                  <p>
+                    {item.tech && <item.tech className={Style.icon} />}
+                    {item.name}
+                  </p>
+                </div>
+              ))}
             </div>
-            <h2>DevOps</h2>
+            <h2>Tools</h2>
             <div className={Style.tech_Card}>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.Git className={Style.icon} />
-                  Git
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.Docker className={Style.icon} />
-                  Docker
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.Postman className={Style.icon} />
-                  Postman
-                </p>
-              </div>
-              <div className={Style.Tech_icon}>
-                <p>
-                  <TechIcon.VSCode className={Style.icon} />
-                  VSCode
-                </p>
-              </div>
+              {Other.map((item, index) => (
+                <div className={Style.Tech_icon} key={index}>
+                  <p>
+                    {item.tech && <item.tech className={Style.icon} />}
+                    {item.name}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
+        </section>
+        <hr/>
+        <section className={Style.Container_Contact}>
+          <div className={Style.contact_box}>
+            
+          <input type="text" id="name"  name="uname" placeholder="enter your name" value={contact.uname} onChange={handleChange} required/>
+            <input type="email" id="email" name="email" placeholder="enter your E-mail" value={contact.email} onChange={handleChange} required/>
+            <textarea id="message" name="message" rows="4" placeholder="enter your message.." value={contact.message} onChange={handleChange} required/>
+            <button onClick={
+            submitHandler} className={Style.contact_box_btn}>Submit</button>
+          </div>
+
         </section>
       </div>
       <footer className={Style.footer}>@Pallav Panda</footer>
