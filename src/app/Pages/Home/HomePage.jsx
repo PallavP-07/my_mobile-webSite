@@ -61,7 +61,7 @@ setContact({
     }
   };
   const DownloadCV = () => {
-    window.open("/Pallav-Panda_Resume.pdf", "_blank");
+    window.open("/Pallav_Panda_Resume", "_blank");
   };
   return (
     <>
@@ -99,9 +99,9 @@ setContact({
               <Image src="/pallav.svg" alt="Logo" width={100} height={100} />
             </div>
             <h3 className={Style.hero_content_title}>Hi, I'm Pallav</h3>
-            <h2 className={Style.hero_content_sub_title}>Frontend Developer</h2>
+            <h2 className={Style.hero_content_sub_title}>MERN Stack Developer</h2>
             <p className={Style.hero_content_details}>
-              Hi there! I'm a passionate front-end developer on a mission to
+              Hi there! I'm a passionate MERN stack developer on a mission to
               craft immersive digital experiences that captivate and inspire.
               Let's innovate together!
             </p>
@@ -113,20 +113,20 @@ setContact({
               {social.map((item, index) => (
                 <li key={index}>
                   {item.icon && <item.icon className={Style.social_icon} />}
-                  {item.name}
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>
                 </li>
               ))}
             </ul>
           </div>
         </section>
-        <hr />
+        {/* <hr />
         <section>
           <div className={Style.timeline}>
             <ul>
               <li>
                 <p className={Style.content}>
                   <iconsData.Code />
-                  Computer Science
+                  2016-2021
                 </p>
 
                 <p className={Style.time}>
@@ -136,31 +136,31 @@ setContact({
               </li>
               <li>
                 <p className={Style.content}>
-                  <iconsData.Code />
-                  Associate Digital Engineer
+                 
+                  Mar-22 to Aug-23
                 </p>
 
                 <p className={Style.time}>
                   <iconsData.Job />
-                  RapidQube
+                  RapidQube <br/> Associate Digital Engineer
                 </p>
               </li>
               <li>
                 <p className={Style.content}>
-                  <iconsData.Code />
-                  Frontend Developer
+                 
+                  Sep-23 to Mar-24
                 </p>
 
                 <p className={Style.time}>
                   <iconsData.Job />
-                  Fulcro
+                  Fulcro <br/> Frontend Developer
                 </p>
               </li>
 
               <div style={{ clear: "both" }}></div>
             </ul>
           </div>
-        </section>
+        </section> */}
         <hr />
         <section className={Style.Container_Project} id="project">
           <div className={Style.Projects_box}>
@@ -172,8 +172,9 @@ setContact({
                   <p className={Style.card_details}>{item.discription}</p>
                   <a className={Style.card_btn}>
                     Read More
-                    <iconsData.sideArrow />
+                    <iconsData.sideArrow className={Style.card_btn_icon}  />
                   </a>
+               
                   <ul className={Style.card_tech}>
                     {item.tech.map((techItem, techIndex) => (
                       <li key={techIndex}>
@@ -215,8 +216,8 @@ setContact({
         </section>
         <hr/>
         <section className={Style.Container_Contact}>
+          <h2>Contact Me</h2>
           <div className={Style.contact_box}>
-            
           <input type="text" id="name"  name="uname" placeholder="enter your name" value={contact.uname} onChange={handleChange} required/>
             <input type="email" id="email" name="email" placeholder="enter your E-mail" value={contact.email} onChange={handleChange} required/>
             <textarea id="message" name="message" rows="4" placeholder="enter your message.." value={contact.message} onChange={handleChange} required/>

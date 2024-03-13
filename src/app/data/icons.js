@@ -10,6 +10,7 @@ import { SiVisualstudiocode,SiPostman, } from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
 import { IoMdMail,IoIosCall } from "react-icons/io";
 import { GrMysql } from "react-icons/gr";
+import { LiaGit } from "react-icons/lia";
 
 export const iconsData={
     Home: RxDashboard,
@@ -42,7 +43,7 @@ export const TechIcon={
     Redux:TbBrandRedux,
     React:FaReact,
     Sass:FaSass,
-    Git:FaGitAlt,
+    Git:LiaGit,
     Bootstrap:FaBootstrap,
     NodeJS:FaNodeJs
 }

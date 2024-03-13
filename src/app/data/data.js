@@ -102,7 +102,7 @@ const tech =[
 ]
 const Other=[
     {
-        name:"Git",
+        name:"Git&",
         tech:TechIcon.Git,
 
     },{
@@ -123,13 +123,16 @@ const Other=[
 const social =[
     {
         name:"Github",
-        icon:iconsData.Github
+        icon:iconsData.Github,
+        url:"https://github.com/PallavP-07"
     },{
         name:"Linkedin",
-        icon:iconsData.Linkedin
+        icon:iconsData.Linkedin,
+        url:"https://www.linkedin.com/in/pallav-panda-a0b00718a/"
     },{
         name:"E-mail",
-        icon:iconsData.Mail
+        icon:iconsData.Mail,
+        url: "mailto:pallav811@gmail.com"
     }
 ]
 export {projects,tech,Other,social}

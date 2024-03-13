@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cookie&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap");
+@import '../Styles/projects';
+@import '../Styles/contact';
+@import '../Styles/nav';
+@import '../Styles/technology';
+@import '../Styles/footer';
 $text-color: #ffffff;
 $main-color: #10cb84;
 $second-color: #1ff5a334;
@@ -7,59 +13,10 @@ $icon-size: 1.5rem;
 $font-size: 1.2rem;
 
 .Container {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: "PT Sans Caption", sans-serif;
   padding-left: 18px;
   padding-right: 18px;
-  .Container_header {
-    display: flex;
-    justify-content: center;
-    padding: 12px;
-    top: 0;
-    .header_nav {
-      background-color: $background-color;
-      padding: 12px 8px;
-      border-radius: 2rem;
-      position: fixed;
-      z-index: 20;
-      ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        li {
-          list-style: none;
-          padding: 4px 8px;
-        }
-        .hide {
-          display: none;
-        }
-      }
-      .Icon {
-        font-size: $icon-size;
-      }
-    }
-    @media (min-width: 767px) {
-      .header_nav {
-        background-color: $background-color;
-        padding: 12px 8px;
-        border-radius: 2rem;
-        ul {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-
-          li {
-            list-style: none;
-            padding: 4px 8px;
-          }
-        }
-        .Icon {
-          font-size: $icon-size;
-        }
-      }
-    }
-  }
   .Container_hero {
     display: flex;
     flex-direction: column;
@@ -119,7 +76,6 @@ $font-size: 1.2rem;
     }
     .hero_content_sub_title {
       color: $main-color;
-      font-family: "Caveat", cursive;
       margin-bottom: 12px;
     }
     .hero_content_social {
@@ -150,236 +106,101 @@ $font-size: 1.2rem;
       }
     }
   }
-  .Container_Project {
-    .Projects_box {
-      display: flex;
-      flex-direction: column;
-     
-    }
-    .Projects_cards {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .Projects_card {
-        border-radius: 14px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        background-color: $background-color;
-        padding: 16px;
-        margin: 6px;
-        width: 175px;
-        .card_title {
-          font-size: 14px;
-          margin: 4px 0px;
-        }
-        .card_details {
-          text-wrap: wrap;
-          font-size: 12px;
-          color: #555555;
-          margin: 4px 0px;
-        }
-        .card_btn {
-          display: flex;
-          font-size: 14px;
-          letter-spacing: 1px;
-          &:active {
-            color: $main-color;
-          }
-        }
-        .card_tech {
-          display: flex;
-          list-style: none;
-          margin: 6px 0px;
-          li {
-            margin-right: 6px;
-            font-size: 18px;
-          }
-        }
-      }
-    }
-  }
-  .Container_Tech {
-    display: flex;
-    flex-direction: column;
-    .tech_Card {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-
-      .Tech_icon {
-        position: relative;
-        border-radius: 14px;
-        background-color: $background-color;
-        padding: 12px;
-        margin: 4px;
-        display: flex;
-        justify-content: center;
-        width: 100px;
-        align-items: center;
-        overflow: hidden;
-        .icon {
-          font-size: 3.2rem;
-        }
-      
-        &:active {
-          color: $main-color;
-        }
-        @keyframes rotate {
-          0%{
-              transform: rotate(0deg);
-          }
-          100%{
-              transform: rotate(-360deg);
-          }
-      }
-      }
-    }
-  }
-
-  .Container_Contact{
-    margin-bottom: 30px;
-    .contact_box{
-      display: flex;
-      flex-direction: column;
-      gap:20px;
-      input{
-        background: $background-color;
-      border: none;
-      padding: 12px;
-      border-radius: 20px;
-      color: #404040;
-        ::placeholder{
-          color: $text-color;
-        }
-      }
-      textarea{
-        background: $background-color;
-      border: none;
-      padding: 12px;
-      border-radius: 20px;
-      color: #404040;
-
-      }
-     &_btn{
-      background: $main-color;
-      border: none;
-      padding: 12px;
-      border-radius: 20px;
-      color: #404040;
-      letter-spacing: 1px;
-      font-size: 14px;
-      font-weight: 600;
-      margin: 12px 0px;
-     }
-      }
-     
-  } 
-  hr{
-    border: none; 
+  hr {
+    border: none;
     height: 3px;
     width: 100%;
-    background-color: $background-color; 
+    background-color: $background-color;
     margin: 22px 0px;
   }
-   
+}
+
+.timeline {
+  position: relative;
+  margin: 50px auto;
+  width: 1000px;
+  box-sizing: border-box;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #c5c5c5;
   }
- 
 
-  .timeline {
-    position: relative;
-    margin: 50px auto;
-    width: 1000px;
-    box-sizing: border-box;
+  ul {
+    padding: 0;
+    margin: 0;
 
-    &:before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      width: 2px;
-      height: 100%;
-      background: #c5c5c5;
-    }
+    li {
+      list-style: none;
+      position: relative;
+      width: 50%;
+      padding: 20px 18px;
+      box-sizing: border-box;
+      font-size: 14px;
 
-    ul {
-      padding: 0;
-      margin: 0;
+      &:nth-child(odd) {
+        float: left;
+        clear: both;
+      }
 
-      li {
-        list-style: none;
-        position: relative;
-        width: 50%;
-        padding: 20px 18px;
-        box-sizing: border-box;
-        font-size: 14px;
+      &:nth-child(even) {
+        float: right;
+        clear: both;
+      }
 
-        &:nth-child(odd) {
-          float: left;
-          clear: both;
-        }
+      &:nth-child(odd):before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 24px;
+        right: -6px;
+        background: $main-color;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px $second-color;
+      }
 
-        &:nth-child(even) {
-          float: right;
-          clear: both;
-        }
+      &:nth-child(even):before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 24px;
+        left: -4px;
+        background: $main-color;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px $second-color;
+      }
 
-        &:nth-child(odd):before {
-          content: "";
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          top: 24px;
-          right: -6px;
-          background: $main-color;
-          border-radius: 50%;
-          box-shadow: 0 0 0 3px $second-color;
-        }
+      &:nth-child(odd) .time {
+        position: absolute;
+        top: 12px;
+        right: -95px;
+        padding: 8px 16px;
+        color: #fff;
+        display: flex;
+        gap: 6px;
+      }
 
-        &:nth-child(even):before {
-          content: "";
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          top: 24px;
-          left: -4px;
-          background: $main-color;
-          border-radius: 50%;
-          box-shadow: 0 0 0 3px $second-color;
-        }
-
-        &:nth-child(odd) .time {
-          position: absolute;
-          top: 12px;
-          right: -165px;
-          padding: 8px 16px;
-          color: #fff;
-          display: flex;
-        }
-
-        &:nth-child(even) .time {
-          position: absolute;
-          top: 12px;
-          left: -165px;
-          padding: 8px 16px;
-          color: #fff;
-          display: flex;
-          letter-spacing: 1px;
-        }
+      &:nth-child(even) .time {
+        position: absolute;
+        top: 12px;
+        left: -136px;
+        padding: 8px 16px;
+        color: #fff;
+        display: flex;
+        letter-spacing: 1px;
+        gap: 6px;
       }
     }
-
-    @media (max-width: 1000px) {
-      width: 100%;
-    }
   }
 
-.footer {
-  position: static;
-  bottom: 0;
-  background-color: $background-color;
-  width: 100%;
-  text-align: center;
-  height: 6vh;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 }
+

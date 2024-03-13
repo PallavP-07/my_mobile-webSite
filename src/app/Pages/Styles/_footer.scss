@@ -1,0 +1,18 @@
+
+$text-color: #ffffff;
+$main-color: #10cb84;
+$second-color: #1ff5a334;
+$background-color: #171819;
+$icon-size: 1.5rem;
+$font-size: 1.2rem;
+
+.footer {
+ 
+    background-color: $background-color;
+    width: 100%;
+    text-align: center;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

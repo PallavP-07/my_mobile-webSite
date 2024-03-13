@@ -1,0 +1,54 @@
+
+$text-color: #ffffff;
+$main-color: #10cb84;
+$second-color: #1ff5a334;
+$background-color: #171819;
+$icon-size: 1.5rem;
+$font-size: 1.2rem;
+
+
+.Container_Contact {
+    margin-bottom: 30px;
+    .contact_box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 22px;
+      input {
+        background: $background-color;
+        border: none;
+        padding: 12px;
+        border-radius: 20px;
+        color: #404040;
+        ::placeholder {
+          color: $text-color;
+        }
+        &:focus {
+          border: 2px solid $main-color;
+          outline: none;
+        }
+      }
+      textarea {
+        background: $background-color;
+        border: none;
+        padding: 12px;
+        border-radius: 20px;
+        color: #404040;
+        &:focus {
+          border: 2px solid $main-color;
+          outline: none;
+        }
+      }
+      &_btn {
+        background: $main-color;
+        border: none;
+        padding: 12px;
+        border-radius: 20px;
+        color: #404040;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 12px 0px;
+      }
+    }
+  }

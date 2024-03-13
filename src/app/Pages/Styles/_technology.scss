@@ -1,0 +1,45 @@
+$text-color: #ffffff;
+$main-color: #10cb84;
+$second-color: #1ff5a334;
+$background-color: #171819;
+$icon-size: 1.5rem;
+$font-size: 1.2rem;
+
+
+.Container_Tech {
+    display: flex;
+    flex-direction: column;
+    .tech_Card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+
+      .Tech_icon {
+        position: relative;
+        border-radius: 14px;
+        background-color: $background-color;
+        padding: 12px;
+        margin: 8px;
+        text-align: center;
+        width: 100px;
+
+        overflow: hidden;
+        .icon {
+          font-size: 3.2rem;
+        }
+
+        &:active {
+          color: $main-color;
+        }
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(-360deg);
+          }
+        }
+      }
+    }
+  }
