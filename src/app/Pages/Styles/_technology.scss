@@ -34,32 +34,25 @@ $font-size: 1.2rem;
         color: $main-color;
       }
 
-      &::after {
+      &::before {
         content: "";
         position: absolute;
         z-index: -2;
-        left: -50%;
-        top: -50%;
-        width: 200%;
-        height: 200%;
+        left:0%;
+        top:0%;
+        width:100%;
+        height:100%;
+        border-radius: 14px;
+        padding: 22px;
         background-color: transparent;
-        background-repeat: no-repeat;
-        background-size: 50% 50%, 50% 50%;
-        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-        background-image: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0) 0%,
-          $main-color 50%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        -webkit-animation: rotate 2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-        animation: rotate 2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        // background-repeat: no-repeat;
+        // background-size: 50%,50%,50%,50%;
+        // background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        box-shadow: 0 0 0 8px $main-color;
+        
+        animation: rotate 2s linear infinite;
       }
-      @-webkit-keyframes rotate {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+   
 
       @keyframes rotate {
         100% {
@@ -69,3 +62,8 @@ $font-size: 1.2rem;
     }
   }
 }
+
+
+
+
+

@@ -67,7 +67,7 @@ function Home() {
     }
   };
   const DownloadCV = () => {
-    window.open("/Pallav_Panda_Resume", "_blank");
+    window.open("/Pallav_Panda_Resume.pdf", "_blank");
   };
   return (
     <>
