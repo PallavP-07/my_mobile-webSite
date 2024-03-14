@@ -5,41 +5,67 @@ $background-color: #171819;
 $icon-size: 1.5rem;
 $font-size: 1.2rem;
 
-
 .Container_Tech {
+  display: flex;
+  flex-direction: column;
+  .tech_Card {
     display: flex;
-    flex-direction: column;
-    .tech_Card {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 
-      .Tech_icon {
-        position: relative;
-        border-radius: 14px;
-        background-color: $background-color;
-        padding: 12px;
-        margin: 8px;
-        text-align: center;
-        width: 100px;
+    .Tech_icon {
+      position: relative;
+      border-radius: 14px;
+      background-color: $background-color;
+      padding: 12px;
+      margin: 8px;
+      text-align: center;
+      width: 100px;
+      overflow: hidden;
+      @media (max-width: 380px) {
+        margin: 4px;
+      }
+      .icon {
+        font-size: 3.2rem;
+      }
 
-        overflow: hidden;
-        .icon {
-          font-size: 3.2rem;
+      &:active {
+        color: $main-color;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          $main-color 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        -webkit-animation: rotate 2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        animation: rotate 2s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+      }
+      @-webkit-keyframes rotate {
+        100% {
+          transform: rotate(360deg);
         }
+      }
 
-        &:active {
-          color: $main-color;
-        }
-        @keyframes rotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(-360deg);
-          }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
         }
       }
     }
   }
+}

@@ -1,9 +1,14 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import HomePage from './Pages/Home/HomePage'
- const Home=()=> {
+"use client"
+import Image from "next/image";
+
+import HomePage from "./Pages/Home/HomePage";
+
+const Home = () => {
+ 
   return (
-<HomePage/>
-  )
-}
+    <>
+      <HomePage/>
+    </>
+  );
+};
 export default Home;

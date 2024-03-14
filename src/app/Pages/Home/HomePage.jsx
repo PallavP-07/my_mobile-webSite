@@ -3,33 +3,39 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { iconsData } from "../../data/icons";
 import Style from "./style.module.scss";
+import axios from "axios";
+
 import { projects, tech, Other, social } from "../../data/data";
 function Home() {
   const [showIcon, setShowIcon] = useState(false);
-  const [contact,setContact]=useState({
-    uname:"",
-    email:"",
-    message:""
-  })
-  const handleChange=(e)=>{
-    const value=e.target.value;
+  const [contact, setContact] = useState({
+    uname: "",
+    email: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    const value = e.target.value;
     setContact({
       ...contact,
-      [e.target.name]:value
+      [e.target.name]: value,
     });
+  };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/sendEmail", contact);
+      if (response.status === 200) {
+        console.log("Email sent successfully");
+        // Reset form state
+        setContact({ uname: "", email: "", message: "" });
+      } else {
+        console.error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 
-  }
- const submitHandler =(e)=>{
-  e.preventDefault()
-  console.log(contact);
-setContact({
-  uname:"",
-  email:"",
-  message:""
-})
-
-
- }
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.screenY || document.documentElement.scrollTop;
@@ -99,7 +105,9 @@ setContact({
               <Image src="/pallav.svg" alt="Logo" width={100} height={100} />
             </div>
             <h3 className={Style.hero_content_title}>Hi, I'm Pallav</h3>
-            <h2 className={Style.hero_content_sub_title}>MERN Stack Developer</h2>
+            <h2 className={Style.hero_content_sub_title}>
+              MERN Stack Developer
+            </h2>
             <p className={Style.hero_content_details}>
               Hi there! I'm a passionate MERN stack developer on a mission to
               craft immersive digital experiences that captivate and inspire.
@@ -113,7 +121,9 @@ setContact({
               {social.map((item, index) => (
                 <li key={index}>
                   {item.icon && <item.icon className={Style.social_icon} />}
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -172,9 +182,9 @@ setContact({
                   <p className={Style.card_details}>{item.discription}</p>
                   <a className={Style.card_btn}>
                     Read More
-                    <iconsData.sideArrow className={Style.card_btn_icon}  />
+                    <iconsData.sideArrow className={Style.card_btn_icon} />
                   </a>
-               
+
                   <ul className={Style.card_tech}>
                     {item.tech.map((techItem, techIndex) => (
                       <li key={techIndex}>
@@ -187,6 +197,8 @@ setContact({
             </div>
           </div>
         </section>
+        <hr />
+        <section className={Style.Container_Services}></section>
         <hr />
         <section className={Style.Container_Tech} id="tech">
           <div>
@@ -214,17 +226,41 @@ setContact({
             </div>
           </div>
         </section>
-        <hr/>
+        <hr />
         <section className={Style.Container_Contact}>
           <h2>Contact Me</h2>
           <div className={Style.contact_box}>
-          <input type="text" id="name"  name="uname" placeholder="enter your name" value={contact.uname} onChange={handleChange} required/>
-            <input type="email" id="email" name="email" placeholder="enter your E-mail" value={contact.email} onChange={handleChange} required/>
-            <textarea id="message" name="message" rows="4" placeholder="enter your message.." value={contact.message} onChange={handleChange} required/>
-            <button onClick={
-            submitHandler} className={Style.contact_box_btn}>Submit</button>
+            <input
+              type="text"
+              id="name"
+              name="uname"
+              placeholder="enter your name"
+              value={contact.uname}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="enter your E-mail"
+              value={contact.email}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="enter your message.."
+              value={contact.message}
+              onChange={handleChange}
+              required
+            />
+            <button onClick={submitHandler} className={Style.contact_box_btn}>
+              Submit
+            </button>
           </div>
-
         </section>
       </div>
       <footer className={Style.footer}>@Pallav Panda</footer>
